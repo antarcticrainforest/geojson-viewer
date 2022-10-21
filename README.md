@@ -51,14 +51,16 @@ python -m pip install .
 ### Fallback
 If the installation fails you can use a fallback binder instance. In this
 instance the application is executed within a
-[jupyter notebook](http://jupyter.org/) on binderhub.
+[jupyter notebook](http://jupyter.org/) on binderhub. You can launch the server
+by following this link
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/antarcticrainforest/geojson-viewer/main?labpath=Fallback.ipynb)
 
 ## Usage
 
 To start the application use the following command:
 
 ```console
-geojson-viewer --help                                                                                                                                              (test)
+geojson-viewer --help
 usage: geojson-viewer [-h] [--debug] [--port PORT] [-V]
 
 View and manipulate geojson files
