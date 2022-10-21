@@ -6,10 +6,10 @@ because it combines relatively simple and straight forward means for creating
 interactive react.js web apps and is still able to fulfill the requirements
 of this small application. Those requirements are:
 
-[] Upload GeoJSON files, containing geo-referenced features and their properties.
-[] Show uploaded features and their properties on a dynamic web map.
-[] Modify existing properties for features shown on the map.
-[] Save updated features with their properties to GeoJson file.
+[ ] Upload GeoJSON files, containing geo-referenced features and their properties.
+[ ] Show uploaded features and their properties on a dynamic web map.
+[ ] Modify existing properties for features shown on the map.
+[ ] Save updated features with their properties to GeoJson file.
 
 ## Installation
 
@@ -56,6 +56,13 @@ by following this link
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/antarcticrainforest/geojson-viewer/main?labpath=Fallback.ipynb)
 
 ## Usage
+
+If you have used the recommended anaconda command above you'd have to
+activate the environment first:
+
+```
+conda activate geoviewer
+```
 
 To start the application use the following command:
 
