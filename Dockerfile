@@ -15,14 +15,11 @@ RUN set -e && \
   groupadd -r --gid "$NB_GID" "$NB_GROUP" && \
   adduser --uid "$NB_UID" --gid "$NB_GID" --gecos "Default user" \
   --shell /bin/bash --disabled-password "$NB_USER" --home $HOME && \
-  mamba install -q -y nodejs jupyterlab-dash dash geopandas gunicorn pandas &&\
-  mamba run pip install /tmp/clone[jupyter] &&\
-  mamba run jupyter labextension install jupyterlab-dash &&\
-  cp /tmp/clone/Fallback.ipynb $HOME/ &&\
+  mamba install -q -y nodejs dash geopandas gunicorn pandas &&\
+  mamba run pip install /tmp/clone &&\
   rm -fr /tmp/clone &&\
   chown -R $NB_USER:$NB_GROUP $HOME
 
 USER $NB_USER
 WORKDIR $HOME
-RUN set -e &&\
-  mamba run python3 -m ipykernel install --name geojson-viewer --user
+CMD mamba run geojson-viewer

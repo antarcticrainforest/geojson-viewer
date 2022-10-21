@@ -44,23 +44,16 @@ If conda is not available you can directly install the dependencies via pip.
 Still, it is recommended to use some kind of isolated python environment
 for example provided by `virtualenv` or `pipenv`.
 
-```
+```console
 python -m pip install .
 ```
-
-### Fallback
-If the installation fails you can use a fallback binder instance. In this
-instance the application is executed within a
-[jupyter notebook](http://jupyter.org/) on binderhub. You can launch the server
-by following this link
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/antarcticrainforest/geojson-viewer/main?labpath=Fallback.ipynb)
 
 ## Usage
 
 If you have used the recommended anaconda command above you'd have to
 activate the environment first:
 
-```
+```console
 conda activate geoviewer
 ```
 
@@ -88,6 +81,14 @@ geojson-viewer --debug
 will start the application in debug mode on port 8050. You can then open
 the app via `http://localhost:8050/` on your browser.
 
+### Fallback
+If the installation fails and you have access to docker on your machine you can
+use the fallback solution of creating a docker container and running the app
+inside the container. For example:
+
+```console
+docker build -t geoviewer . && docker run -it --net=host geoviewer geojson-viewer --debug
+```
 
 ## Sample data
 Sample geojson data is provided in the repository (`montreal_elections.geojson`)
