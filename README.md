@@ -6,10 +6,10 @@ because it combines relatively simple and straight forward means for creating
 interactive react.js web apps and is still able to fulfill the requirements
 of this small application. Those requirements are:
 
-[ ] Upload GeoJSON files, containing geo-referenced features and their properties.
-[ ] Show uploaded features and their properties on a dynamic web map.
-[ ] Modify existing properties for features shown on the map.
-[ ] Save updated features with their properties to GeoJson file.
+- [ ] Upload GeoJSON files, containing geo-referenced features and their properties.
+- [ ] Show uploaded features and their properties on a dynamic web map.
+- [ ] Modify existing properties for features shown on the map.
+- [ ] Save updated features with their properties to GeoJson file.
 
 ## Installation
 
