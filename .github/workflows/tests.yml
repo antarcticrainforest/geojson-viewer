@@ -1,0 +1,46 @@
+name: Lint
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+
+jobs:
+  tests:
+
+    runs-on: ubuntu-latest
+    strategy:
+        max-parallel: 5
+        matrix:
+          python-version: [3.7, 3.8, 3.9, "3.10"]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version:  ${{ matrix.python-version }}
+
+    - name: Add conda to system path
+      run: |
+        # $CONDA is an environment variable pointing to the root of the miniconda directory
+        echo $CONDA/bin >> $GITHUB_PATH
+
+    - name: Creating conda environment for ${{ matrix.python-version }}
+      run: |
+        conda env create -q -n test python=${{matrix.python-version}} -f environment.yml
+
+    - name: Install dependencies
+      run: |
+        conda run -n test python3 -m pip install -e .[tests]
+
+    - name: Linting
+      run: |
+       # stop the build if there are Python syntax errors or undefined names
+       conda run -n test flake8 src/geojson_viewer --count --select=E9,F63,F7,F82 --show-source --statistics
+       # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+       conda run -n test mypy
+    - name: Simple smoke test
+      conda run -n test geojson-viewer --help
