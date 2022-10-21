@@ -44,5 +44,5 @@ jobs:
        conda run -n test mypy
     - name: Simple smoke test
       run: |
-        # At least check if we can import all libraries
-        conda run -n test geojson-viewer --help
+       # At least check if we can import all libraries
+       conda run -n test geojson-viewer --help
