@@ -43,4 +43,6 @@ jobs:
        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
        conda run -n test mypy
     - name: Simple smoke test
-      conda run -n test geojson-viewer --help
+      run: |
+        # At least check if we can import all libraries
+        conda run -n test geojson-viewer --help
